@@ -10,3 +10,12 @@ def read_in_a_file(path: str):
         print(f'The file: {fnfe} was not found.')
     else:
         return input_file
+
+
+def main() -> None:
+    """main"""
+
+
+if __name__ == '__main__':
+    import sys
+    sys.exit(main())
