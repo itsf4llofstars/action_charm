@@ -3,8 +3,10 @@
 
 
 def main():
+    """main function"""
     pass
 
 
 if __name__ == "__main__":
-    exit(main())
+    import sys
+    sys.exit(main())
