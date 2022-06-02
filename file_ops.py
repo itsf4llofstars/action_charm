@@ -10,13 +10,13 @@ def read_in_a_file(path: str):
         List[str]: List of the file with each index as a line
     """
     read = "r"
+    input_file = []
     try:
-        with open(path, read) as fo:
-            input_file = fo.readlines()
+        with open(path, read, encoding="utf-8") as file_obj:
+            input_file = file_obj.readlines()
     except FileNotFoundError as fnfe:
         print(f"The file: {fnfe} was not found.")
-    else:
-        return input_file
+    return input_file
 
 
 def strip_newlines(file_list):
@@ -45,10 +45,10 @@ def write_file(file_path: str, file_text):
         N/A
     """
     write = "w"
-    with open(file_path, write) as fo:
+    with open(file_path, write, encoding="utf-8") as file_obj:
         for line in file_text:
-            fo.write(line)
-            fo.write("\n")
+            file_obj.write(line)
+            file_obj.write("\n")
 
 
 def main() -> None:
