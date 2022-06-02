@@ -9,12 +9,12 @@ def read_in_a_file(path: str):
     :return:
         List[str]: List of the file with each index as a line
     """
-    read = 'r'
+    read = "r"
     try:
         with open(path, read) as fo:
             input_file = fo.readlines()
     except FileNotFoundError as fnfe:
-        print(f'The file: {fnfe} was not found.')
+        print(f"The file: {fnfe} was not found.")
     else:
         return input_file
 
@@ -44,20 +44,21 @@ def write_file(file_path: str, file_text):
     :return:
         N/A
     """
-    write = 'w'
+    write = "w"
     with open(file_path, write) as fo:
         for line in file_text:
             fo.write(line)
-            fo.write('\n')
+            fo.write("\n")
 
 
 def main() -> None:
     """main"""
-    foo = read_in_a_file('/etc/adduser.conf')
+    foo = read_in_a_file("/etc/adduser.conf")
     file_text = strip_newlines(foo)
-    write_file('/home/bumper/delete-me.txt', file_text)
+    write_file("/home/bumper/delete-me.txt", file_text)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
+
     sys.exit(main())
