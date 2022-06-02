@@ -45,7 +45,7 @@ def write_file(file_path: str, file_text):
         N/A
     """
     write = "w"
-    with open(file_path, write) as fo:
+    with open(file_path, write, encoding='utf-8') as fo:
         for line in file_text:
             fo.write(line)
             fo.write("\n")
