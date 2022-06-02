@@ -11,8 +11,8 @@ def read_in_a_file(path: str):
     """
     read = "r"
     try:
-        with open(path, read) as fo:
-            input_file = fo.readlines()
+        with open(path, encoding='utf-8') as file_obj:
+            input_file = file_obj.readlines()
     except FileNotFoundError as fnfe:
         print(f"The file: {fnfe} was not found.")
     else:
