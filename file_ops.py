@@ -14,6 +14,8 @@ def read_in_a_file(path: str):
 
 def main() -> None:
     """main"""
+    file_text = read_in_a_file('/etc/bash.bashrc')
+    [print(line) for line in file_text]
 
 
 if __name__ == '__main__':
