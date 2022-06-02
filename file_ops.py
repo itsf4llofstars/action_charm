@@ -34,11 +34,28 @@ def strip_newlines(file_list):
     return stripped_list
 
 
+def write_file(file_path: str, file_text):
+    """Writes the passed file_text to a file in the file_path
+
+    :param
+        [str]: file_path: Full path and filename of the file to be written
+    :param
+        file_text: List[str]: List of strings to be written to the file
+    :return:
+        N/A
+    """
+    write = 'w'
+    with open(file_path, write) as fo:
+        for line in file_text:
+            fo.write(line)
+            fo.write('\n')
+
+
 def main() -> None:
     """main"""
     foo = read_in_a_file('/etc/adduser.conf')
     file_text = strip_newlines(foo)
-    [print(line) for line in file_text]
+    write_file('/home/bumper/delete-me.txt', file_text)
 
 
 if __name__ == '__main__':
