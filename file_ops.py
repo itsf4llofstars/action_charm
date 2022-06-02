@@ -10,13 +10,13 @@ def read_in_a_file(path: str):
         List[str]: List of the file with each index as a line
     """
     read = "r"
+    input_file = []
     try:
         with open(path, encoding='utf-8') as file_obj:
             input_file = file_obj.readlines()
     except FileNotFoundError as fnfe:
         print(f"The file: {fnfe} was not found.")
-    else:
-        return input_file
+    return input_file
 
 
 def strip_newlines(file_list):
