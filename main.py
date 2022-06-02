@@ -4,7 +4,7 @@
 
 def main():
     """main function"""
-    pass
+    print(__name__)
 
 
 if __name__ == "__main__":
