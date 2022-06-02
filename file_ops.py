@@ -2,7 +2,7 @@
 
 
 def read_in_a_file(path: str):
-    """Reads in a file and returns a list of it's lines.
+    """Reads in a file and returns a list of strings per-line.
 
     :param
         path: [str]: Full path and filename
@@ -53,9 +53,6 @@ def write_file(file_path: str, file_text):
 
 def main() -> None:
     """main"""
-    foo = read_in_a_file("/etc/adduser.conf")
-    file_text = strip_newlines(foo)
-    write_file("/home/bumper/delete-me.txt", file_text)
 
 
 if __name__ == "__main__":
