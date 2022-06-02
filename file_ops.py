@@ -12,7 +12,7 @@ def read_in_a_file(path: str):
     read = "r"
     input_file = []
     try:
-        with open(path, read, encoding='utf-8') as file_obj:
+        with open(path, read, encoding="utf-8") as file_obj:
             input_file = file_obj.readlines()
     except FileNotFoundError as fnfe:
         print(f"The file: {fnfe} was not found.")
@@ -45,7 +45,7 @@ def write_file(file_path: str, file_text):
         N/A
     """
     write = "w"
-    with open(file_path, write, encoding='utf-8') as file_obj:
+    with open(file_path, write, encoding="utf-8") as file_obj:
         for line in file_text:
             file_obj.write(line)
             file_obj.write("\n")
