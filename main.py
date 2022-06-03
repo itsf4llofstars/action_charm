@@ -6,6 +6,20 @@ def get_max_primes():
     return int(input("Enter the maximum number of primes to calculate: "))
 
 
+def check_mod(if_prime_num, chk_prime_num):
+    return not if_prime_num % chk_prime_num
+
+
+def check_equal(if_prime_num, chk_prime_num):
+    return if_prime_num == chk_prime_num
+
+
+def change_num(number, plus=True):
+    if plus:
+        return number + 1
+    return number - 1
+
+
 def main():
     """main function"""
     max_primes = get_max_primes()
