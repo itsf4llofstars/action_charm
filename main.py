@@ -31,17 +31,18 @@ def main():
     iterations = 0
 
     while primes > 0:
-        chk_prime += 1
-        iterations += 1
+        chk_prime = change_num(chk_prime)
+        iterations = change_num(iterations)
 
-        if if_prime % chk_prime == 0:
-            if if_prime == chk_prime:
-                primes -= 1
-                total_primes += 1
-                print(f"Prime: {total_primes} = {if_prime}")
-
+        if check_mod(if_prime, chk_prime) and check_equal(if_prime, chk_prime):
+            primes = change_num(primes, False)
+            total_primes = change_num(total_primes)
+            print(f"Prime: {total_primes} = {if_prime}")
             chk_prime = 1
-            if_prime += 1
+            if_prime = change_num(if_prime)
+        elif check_mod(if_prime, chk_prime) and not check_equal(if_prime, chk_prime):
+            chk_prime = 1
+            if_prime = change_num(if_prime)
 
     print(f"\nIterations: {iterations}")
 
