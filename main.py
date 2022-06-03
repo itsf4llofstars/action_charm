@@ -2,9 +2,13 @@
 """main.py file"""
 
 
+def get_max_primes():
+    return int(input("Enter the maximum number of primes to calculate: "))
+
+
 def main():
     """main function"""
-    print(__name__)
+    max_primes = get_max_primes()
 
 
 if __name__ == "__main__":
