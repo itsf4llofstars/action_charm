@@ -20,6 +20,9 @@ class Car:
     def get_fuel_balance(self):
         return 10.4 - self.fuel
 
+    def calc_mpg(self):
+        return self.trip / self.fuel
+
 
 def main():
     """main function"""
