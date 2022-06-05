@@ -26,6 +26,14 @@ class Car:
 
 def main():
     """main function"""
+    my_car = Car('Corolla', 2009, 53476, 321.6, 5.5)
+    print(f'Fuel balance {my_car.get_fuel_balance()}')
+    my_car.add_fuel(5.0)
+    my_car.add_fuel(4.9)
+    print(f'Fuel balance {my_car.get_fuel_balance()}')
+    my_car.fuel = 9.8
+    mpg = my_car.calc_mpg()
+    print(mpg)
 
 
 if __name__ == "__main__":
