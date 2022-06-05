@@ -10,6 +10,16 @@ class Car:
         self.trip = trip
         self.fuel = fuel
 
+    def add_fuel(self, gallons):
+        if self.fuel + gallons > 10.4:
+            max_add = 10.4 - self.fuel
+            print(f'Adding to much fuel add only {max_add} gallons')
+        else:
+            self.fuel += gallons
+
+    def get_fuel_balance(self):
+        return 10.4 - self.fuel
+
 
 def main():
     """main function"""
