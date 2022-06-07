@@ -3,7 +3,7 @@ from collections import deque
 
 
 class Vigenere:
-    def __init__(self):
+    def __init__(self, key='', message='', encoded_message='', decoded_message=''):
         # fmt: off
         self.rotor_in = deque([
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
@@ -14,9 +14,11 @@ class Vigenere:
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         ])
         # fmt: on
-        self.key = ''
-        self.message = ''
-        self.encoded_message = ''
+        self.key = key.upper()
+        self.key_list = deque([])
+        self.message = message.upper()
+        self.encoded_message = encoded_message.upper()
+        self.decoded_message = decoded_message.upper()
 
     def get_key(self):
         while True:
@@ -41,21 +43,41 @@ class Vigenere:
                 print("\nPlease enter a message form the 26 character North American Alphabet.\n")
 
     def set_key(self):
-        while self.rotor_out[0] != self.key[0]:
-            deque.rotate(self.rotor_out)
+        self.key_list = deque(self.key)
 
     def encode_message(self):
         message_index = 0
 
         while len(self.encoded_message) != len(self.message):
-            while self.rotor_out[0] != self.key[0]:
-                deque.rotate(self.rotor_out)
+            while self.rotor_out[0] != self.key_list[0]:
+                deque.rotate(self.rotor_out, -1)
+
+            deque.rotate(self.key_list, -1)
 
             message_letter = self.message[message_index]
             index_of_letter = self.rotor_in.index(message_letter)
 
-            encoded_letter = self.rotor_out[message_letter]
+            encoded_letter = self.rotor_out[index_of_letter]
             self.encoded_message += encoded_letter
+
+            message_index += 1
+
+    def decode_message(self):
+        message_index = 0
+
+        while len(self.encoded_message) != len(self.message):
+            while self.rotor_out[0] != self.key_list[0]:
+                deque.rotate(self.rotor_out, -1)
+
+            deque.rotate(self.key_list, -1)
+
+            message_letter = self.message[message_index]
+            index_of_letter = self.rotor_out.index(message_letter)
+
+            encoded_letter = self.rotor_in[index_of_letter]
+            self.encoded_message += encoded_letter
+
+            message_index += 1
 
     def get_encoded_messaage(self):
         return self.encoded_message
@@ -64,11 +86,17 @@ class Vigenere:
 def main():
     vig = Vigenere()
     vig.get_key()
-    vig.get_message()
     vig.set_key()
+    vig.get_message()
     vig.encode_message()
-    secret_message = vig.get_encoded_messaage()
-    print(secret_message)
+    print(vig.get_encoded_messaage())
+
+    foo = Vigenere()
+    foo.get_key()
+    foo.get_message()
+    foo.set_key()
+    foo.decode_message()
+    print(foo.get_encoded_messaage())
 
 
 if __name__ == '__main__':
