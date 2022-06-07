@@ -3,7 +3,14 @@ from collections import deque
 
 
 class Vigenere:
-    def __init__(self, key='', message='', encoded_message='', decoded_message=''):
+    def __init__(self, key='', message='', encoded_message='', decoded_message='') -> None:
+        """Instantiates Vigenere attributes
+
+        :param key: encoding key, default ""
+        :param message: message to encode default ""
+        :param encoded_message: message encoded default ""
+        :param decoded_message: message decoded default ""
+        """
         # fmt: off
         self.rotor_in = deque([
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
@@ -20,7 +27,7 @@ class Vigenere:
         self.encoded_message = encoded_message.upper()
         self.decoded_message = decoded_message.upper()
 
-    def get_key(self):
+    def get_key(self) -> None:
         while True:
             print("Enter a word to be used as the coding key: ", end="")
             key = input()
@@ -33,7 +40,7 @@ class Vigenere:
                 elif len(key) > len(self.rotor_in):
                     print("\nPlease keep your key to less than 26 characters.\n")
 
-    def get_message(self):
+    def get_message(self) -> None:
         while True:
             message = input("Enter your message to be encoded: ")
             if isinstance(message, str):
@@ -43,10 +50,10 @@ class Vigenere:
             elif not isinstance(message, str):
                 print("\nPlease enter a message form the 26 character North American Alphabet.\n")
 
-    def set_key(self):
+    def set_key(self) -> None:
         self.key_list = deque(self.key)
 
-    def encode_message(self):
+    def encode_message(self) -> None:
         message_index = 0
 
         while len(self.encoded_message) != len(self.message):
@@ -63,7 +70,7 @@ class Vigenere:
 
             message_index += 1
 
-    def decode_message(self):
+    def decode_message(self) -> None:
         message_index = 0
 
         while len(self.encoded_message) != len(self.message):
@@ -80,7 +87,7 @@ class Vigenere:
 
             message_index += 1
 
-    def get_encoded_messaage(self):
+    def get_encoded_messaage(self) -> str:
         return self.encoded_message
 
 
