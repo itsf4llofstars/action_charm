@@ -9,7 +9,7 @@ class Vigenere:
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         ])
-        self.rotor_in = deque([
+        self.rotor_out = deque([
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         ])
@@ -39,3 +39,7 @@ class Vigenere:
                 break
             elif not isinstance(message, str):
                 print("\nPlease enter a message form the 26 character North American Alphabet.\n")
+
+    def set_key(self):
+        while self.rotor_out[0] != self.key[0]:
+            deque.rotate(self.rotor_out)
