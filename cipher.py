@@ -56,3 +56,6 @@ class Vigenere:
 
             encoded_letter = self.rotor_out[message_letter]
             self.encoded_message += encoded_letter
+
+    def get_encoded_messaage(self):
+        return self.encoded_message
