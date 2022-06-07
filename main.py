@@ -1,27 +1,21 @@
 #!/usr/bin/env python3
 """main.py file"""
-import math
+from cipher import Vigenere
 
+vig_encode = Vigenere()
+vig_encode.get_key()
+vig_encode.set_key()
+vig_encode.get_message()
+vig_encode.encode_message()
 
-def add_num(a: int, b: int) -> int:
-    return a + b
+encoded_message = vig_encode.get_encoded_messaage()
+print(encoded_message)
 
+vig_decode = Vigenere()
+vig_decode.get_key()
+vig_decode.set_key()
+vig_decode.get_message()
+vig_decode.decode_message()
 
-def hypot(a: float, b: float) -> float:
-    return math.sqrt(a ** 2 + b ** 2)
-
-
-def main():
-    """main function"""
-    x: int = 30
-    y: int = 40
-    z = add_num(x, y)
-    print(f'{x} + {y} = {z}')
-
-    pythag = hypot(x, y)
-    print(pythag)
-
-
-if __name__ == "__main__":
-    import sys
-    sys.exit(main())
+decoded_message = vig_decode.get_encoded_messaage()
+print(decoded_message)
