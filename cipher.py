@@ -59,3 +59,17 @@ class Vigenere:
 
     def get_encoded_messaage(self):
         return self.encoded_message
+
+
+def main():
+    vig = Vigenere()
+    vig.get_key()
+    vig.get_message()
+    vig.set_key()
+    vig.encode_message()
+    secret_message = vig.get_encoded_messaage()
+    print(secret_message)
+
+
+if __name__ == '__main__':
+    main()
