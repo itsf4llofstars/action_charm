@@ -22,7 +22,8 @@ class Vigenere:
 
     def get_key(self):
         while True:
-            key = input("Enter a word to be used as the coding key: ")
+            print("Enter a word to be used as the coding key: ", end="")
+            key = input()
             if isinstance(key, str) and len(key) <= len(self.rotor_in):
                 self.key = key.upper()
                 break
