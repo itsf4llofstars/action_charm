@@ -43,3 +43,16 @@ class Vigenere:
     def set_key(self):
         while self.rotor_out[0] != self.key[0]:
             deque.rotate(self.rotor_out)
+
+    def encode_message(self):
+        message_index = 0
+
+        while len(self.encoded_message) != len(self.message):
+            while self.rotor_out[0] != self.key[0]:
+                deque.rotate(self.rotor_out)
+
+            message_letter = self.message[message_index]
+            index_of_letter = self.rotor_in.index(message_letter)
+
+            encoded_letter = self.rotor_out[message_letter]
+            self.encoded_message += encoded_letter
