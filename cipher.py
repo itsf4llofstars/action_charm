@@ -29,3 +29,13 @@ class Vigenere:
                     print("\nPlease enter a word or letters form the 26 character North American Alphabet.\n")
                 elif len(key) > len(self.rotor_in):
                     print("\nPlease keep your key to less than 26 characters.\n")
+
+    def get_message(self):
+        while True:
+            message = input("Enter your message to be encoded: ")
+            if isinstance(message, str):
+                message_x = message.replace(' ', 'x')
+                self.message = message_x.upper()
+                break
+            elif not isinstance(message, str):
+                print("\nPlease enter a message form the 26 character North American Alphabet.\n")
