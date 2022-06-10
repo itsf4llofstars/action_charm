@@ -34,7 +34,7 @@ def strip_newlines(file_list):
     return stripped_list
 
 
-def write_file(file_path: str, file_text):
+def write_file(filepath: str, file_text, mode='w'):
     """Writes the passed file_text to a file in the file_path
 
     :param
@@ -44,18 +44,18 @@ def write_file(file_path: str, file_text):
     :return:
         N/A
     """
-    write = "w"
-    with open(file_path, write, encoding="utf-8") as file_obj:
-        for line in file_text:
-            file_obj.write(line)
-            file_obj.write("\n")
+    if isinstance(filepath, str):
+        with open(filepath, mode, encoding="utf-8") as file_obj:
+            for line in file_text:
+                file_obj.write(line)
+                file_obj.write("\n")
 
 
-def main() -> None:
+def main(args) -> None:
     """main"""
 
 
 if __name__ == "__main__":
     import sys
 
-    sys.exit(main())
+    sys.exit(main(sys.orig_argv))
