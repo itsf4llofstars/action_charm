@@ -9,7 +9,7 @@ def read_file(path: str):
     :return:
         List[str]: List of the file with each index as a line
     """
-    input_file = []
+    # input_file = []  # May not be needed
     if isinstance(path, str):
         if not path.startswith('/'):
             path = '/' + path
