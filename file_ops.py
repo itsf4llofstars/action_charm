@@ -11,6 +11,8 @@ def read_file(path: str):
     """
     input_file = []
     if isinstance(path, str):
+        if not path.startswith('/'):
+            path = '/' + path
         with open(path, 'r', encoding="utf-8") as file_obj:
             input_file = file_obj.readlines()
         return input_file
