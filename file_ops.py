@@ -1,7 +1,7 @@
 """File Parser Python Script"""
 
 
-def read_in_a_file(path: str):
+def read_file(path: str):
     """Reads in a file and returns a list of strings per-line.
 
     :param
